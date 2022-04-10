@@ -26,4 +26,4 @@ npx react-native run-android
 > Ekran tasarımlarında props olarak bir ayar alıyorsak bunun ne işe yaradığını daha sonradan o ekrana bakacak kişi için yorum satırı olarak componentin bizzat kendi dosyasına ekleyelim.
 ```
 ### Trello iş takibi:
-[Trello iş takibine gitmek için tıklayın.](https://trello.com/b/EIA7MTDK/project-management)
+[Trello iş takibine gitmek için tıklayın.](https://trello.com/b/EIA7MTDK/fast-and-healthy)
