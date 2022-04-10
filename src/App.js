@@ -3,7 +3,7 @@ import React from 'react';
 const App = () => {
   return (
     <View>
-      <Text>Merhaba Mehmet!</Text>
+      <Text>Merhaba Mehmet! ve Kübra</Text>
     </View>
   );
 };
