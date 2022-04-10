@@ -3,7 +3,7 @@ import React from 'react';
 const App = () => {
   return (
     <View>
-      <Text>Deneme request test 2</Text>
+      <Text>Request test </Text>
     </View>
   );
 };
