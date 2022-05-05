@@ -9,6 +9,7 @@ export default StyleSheet.create({
         marginLeft:40,
         flexDirection:'row',
         marginRight:40,
+        marginBottom:5
     },
     rememberMeText:{
         flex:1,
@@ -42,15 +43,14 @@ export default StyleSheet.create({
         color:'#116ED8',
         fontSize:15
     },
-    loginFooterImages:{
+    loginFooterImage:{
      width:deviceSize.width,
      height:deviceSize.height/3,
-      
-    
+     
     
     },
     loginFooterTopImage:{
-        bottom:40
+        bottom:35
     },
  
     copyrightFooterText:{
@@ -58,7 +58,7 @@ export default StyleSheet.create({
         color:'white',
         textAlign:'center',
         width:deviceSize.width,
-        top:deviceSize.height/4.6,
+        top:deviceSize.height/4.5,
         fontFamily:'Blinker-Regular',
         fontSize:17
      

@@ -1,11 +1,12 @@
 import { StyleSheet,Dimensions } from 'react-native';
 export default StyleSheet.create({
     logoContainer:{
-      width:Dimensions.get('window').width
+      width:Dimensions.get('window').width,
     },
     logoImage:{
         height:150,
-        marginTop:5
+        marginTop:5,
+        
     },
 
     logoTextContainer:{
