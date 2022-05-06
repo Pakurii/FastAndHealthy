@@ -1,8 +1,8 @@
 import React from 'react';
-import { View,Text,Image } from 'react-native';
+import {View, Text, Image} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import Styles from "./RegisterSliderStyle";
- 
+import Styles from './RegisterSliderStyle';
+
 const slides = [
   {
     key: 1,
@@ -21,39 +21,45 @@ const slides = [
   {
     key: 3,
     title: 'Rocket guy',
-    text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
+    text: "I'm already out of descriptions\n\nLorem ipsum bla bla bla",
     // image: require('./assets/3.jpg'),
     backgroundColor: '#22bcb5',
-  }
+  },
 ];
- 
+
 export default class App extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            showRealApp: false
-          }
-    }
- 
-  _renderItem = ({ item }) => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showRealApp: false,
+    };
+  }
+
+  _renderItem = ({item}) => {
     return (
-      <View >
+      <View>
         <Text>{item.title}</Text>
         <Image source={item.image} />
-        <Text >{item.text}</Text>
+        <Text>{item.text}</Text>
       </View>
     );
-  }
+  };
   _onDone = () => {
     // User finished the introduction. Show real app through
     // navigation or simply by controlling state
-    this.setState({ showRealApp: true });
-  }
+    this.setState({showRealApp: true});
+  };
   render() {
     if (this.state.showRealApp) {
       return <App />;
     } else {
-      return <AppIntroSlider renderItem={this._renderItem} data={slides} onDone={this._onDone}/>;
+      return (
+        <AppIntroSlider
+          renderItem={this._renderItem}
+          data={slides}
+          onDone={this._onDone}
+        />
+      );
     }
   }
 }

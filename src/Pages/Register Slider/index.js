@@ -1,1 +1,1 @@
-export {default} from "./RegisterSlider"
+export {default} from './RegisterSlider';
