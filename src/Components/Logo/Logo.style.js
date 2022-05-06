@@ -2,11 +2,12 @@ import { StyleSheet,Dimensions } from 'react-native';
 export default StyleSheet.create({
     logoContainer:{
       width:Dimensions.get('window').width,
+      alignItems:'center'
     },
     logoImage:{
         height:150,
         marginTop:5,
-        
+         
     },
 
     logoTextContainer:{

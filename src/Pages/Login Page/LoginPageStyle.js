@@ -2,14 +2,24 @@ import { StyleSheet,Dimensions } from 'react-native';
 const deviceSize=Dimensions.get('window');
 export default StyleSheet.create({
     container:{
-        backgroundColor:'white'
+        backgroundColor:'white',
+        flex:1
     },
-    innerContainer:{
+    centerContainer:{
+        flex:1
+    },
+    bottomContainer:{
+        flex:1,
+   
+       
+    },
+    rememberAndForgotPasswordContainer:{
         padding:10,
         marginLeft:40,
         flexDirection:'row',
         marginRight:40,
-        marginBottom:5
+        marginBottom:5,
+        
     },
     rememberMeText:{
         flex:1,
@@ -29,7 +39,8 @@ export default StyleSheet.create({
         marginRight:40,
         paddingTop:15,
         justifyContent:'center',
-        marginBottom:10
+        marginBottom:10,
+        
         
     },
     dontHaveAccountText:{
@@ -41,28 +52,21 @@ export default StyleSheet.create({
     registerText:{
         fontFamily:'Blinker-Regular',
         color:'#116ED8',
-        fontSize:15
+        fontSize:15,
+        
     },
-    loginFooterImage:{
-     width:deviceSize.width,
-     height:deviceSize.height/3,
-     
+    bottomBackgroundImage:{
+      width:deviceSize.width,
+      height:200,
+      resizeMode:'contain'
+        
+    },
+    bottomImage:{
+        bottom:40,
+      
+    },
+  
     
-    },
-    loginFooterTopImage:{
-        bottom:35
-    },
- 
-    copyrightFooterText:{
-        position: 'absolute',
-        color:'white',
-        textAlign:'center',
-        width:deviceSize.width,
-        top:deviceSize.height/4.5,
-        fontFamily:'Blinker-Regular',
-        fontSize:17
-     
-    }
  
 
 })
