@@ -14,13 +14,13 @@ npx react-native run-android
 >4) Geliştirmeleriniz aşağıda yer alan standartlara uygunsa maine merge edilecek <br>
 ### Uyulması gereken kodlama standartları:
 ```
-> Branch'inizde tamamladığımız işin sorunsuz çalıştığına emin olduğumuzda main branch'e merge'leyelim.
+> Branch'inizde tamamladığımız işin sorunsuz çalıştığına emin olduğumuzda request gönderelim
 ```
 ```
 > Her sayfa için ayrı ayrı Pages/ altına klasör oluşturalım. 
 ```
 ```
-> Bir ekran tasarımı yaparken tüm componentleri parçalayalım - klasörleyelim ve bu parçaları ana ekranda buluşturun. (header-body-footer vs.)
+> Bir ekran tasarımı yaparken O EKRANDAKİ COMPONENTLER BAŞKA YERLERDE KULLANILABİLİRSE bu componentleri parçalayalım - klasörleyelim 
 ```
 
 ```
