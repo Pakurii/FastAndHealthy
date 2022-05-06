@@ -1,10 +1,11 @@
-import {Text, View} from 'react-native';
+import Tabs from './Components/NavigationBar/NavigationBar';
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 const App = () => {
   return (
-    <View>
-      <Text>Request test B</Text>
-    </View>
+    <NavigationContainer>
+      <Tabs></Tabs>
+    </NavigationContainer>
   );
 };
 export default App;
