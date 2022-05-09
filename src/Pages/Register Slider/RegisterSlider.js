@@ -1,65 +1,161 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  Text,
+  Image,
+  StyleSheet,
+  StatusBar,
+  TouchableOpacity,
+} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import Styles from './RegisterSliderStyle';
+import styles from './RegisterSliderStyle';
 
-const slides = [
+const data = [
   {
     key: 1,
-    title: 'Title 1',
-    text: 'Description.\nSay something cool',
-    // image: require('./assets/1.jpg'),
-    backgroundColor: '#59b2ab',
+    title: 'Fast and Healthy’e Hoşgeldin!',
+    text: 'Artık yeni hayatına bir adım daha yakınsın. Vakit kaybetmeden başlayalım?',
+    image: require('../../../assets/images/sliderImages/first.png'),
+    bg: 'white',
   },
   {
     key: 2,
-    title: 'Title 2',
-    text: 'Other cool stuff',
-    // image: require('./assets/2.jpg'),
-    backgroundColor: '#febe29',
+    title: 'Artırılmış Gerçeklikle Spor',
+    text: 'Fast and Healthy artırılmış gerçeklikle yep yeni bir spor deneyimi sunuyor. Spor yapmak hiç bu kadar eğlenceli olmamıştı... Devam etmek için kullanıcı türünü seçelim:',
+    image: require('../../../assets/images/sliderImages/second.png'),
+    bg: 'white',
   },
   {
     key: 3,
-    title: 'Rocket guy',
-    text: "I'm already out of descriptions\n\nLorem ipsum bla bla bla",
-    // image: require('./assets/3.jpg'),
-    backgroundColor: '#22bcb5',
+    title: 'Sizi Profesyonellerle Buluşturuyoruz',
+    text: 'Fast and Healthy’de dilediğin zaman profesyonel destek alabilirsin. Hemde tek tık ile! Kayıt olmaya devam etmek için e-posta adresini ve kullanıcı adını belirleyelim:',
+    image: require('../../../assets/images/sliderImages/third.png'),
+    bg: 'white',
+  },
+  {
+    key: 4,
+    title: 'Liderlik Tablosunda Yerin Hazır',
+    text: 'Fast and Healthy seni bölgesel olarak diğer kullanıcılarla yarışıp ödüller kazanacağın puanlama sistemine sahiptir. Son olarak şifreni belirleyelim ve oturduğun yeri seçelim. Artık hazırsın!',
+    image: require('../../../assets/images/sliderImages/fourth.png'),
+    bg: 'white',
+  },
+  {
+    key: 5,
+    title: 'Sizi Her Şehirden Kullanıcılarla Buluşturuyoruz!',
+    text: 'Fast and Healthy ile farklı şehirlerdeki kullanıcılarla buluşabilirsiniz. Ayrıca çalıştığınız bölgede de öne çıkıp kendinizi ücretsiz bir şekilde tanıtabilirsiniz.',
+    image: require('../../../assets/images/sliderImages/fifth.png'),
+    bg: 'white',
+  },
+  {
+    key: 6,
+    title: 'Danışmanlarınıza Kolayca Görev Gönderin!',
+    text: 'Fast and Healthy ile size danışan kullanıcılara kolayca görev gönderebilirsiniz. Gönderdiğiniz görevleri tamamladığında hem danışanınız hem siz puan kazanırsınız. Bu keşfedilme şansınızı arttırır. ',
+    image: require('../../../assets/images/sliderImages/sixth.png'),
+    bg: 'white',
   },
 ];
+type Item = (typeof data)[0];
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showRealApp: false,
-    };
-  }
-
-  _renderItem = ({item}) => {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     showRealApp: false,
+  //   };
+  // }
+  slider: AppIntroSlider | undefined;
+  _renderItem = ({item}: {item: Item}) => {
     return (
-      <View>
-        <Text>{item.title}</Text>
-        <Image source={item.image} />
-        <Text>{item.text}</Text>
+      <View
+        style={[
+          styles.slide,
+          {
+            backgroundColor: item.bg,
+          },
+        ]}>
+        <Image source={item.image} style={styles.image} />
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.text}>{item.text}</Text>
       </View>
     );
   };
-  _onDone = () => {
-    // User finished the introduction. Show real app through
-    // navigation or simply by controlling state
-    this.setState({showRealApp: true});
+  _keyExtractor = (item: Item) => item.title;
+
+  // _renderNextButton = () => {
+  //   return (
+  //     <View style={styles.buttonCircle}>
+  //       <Text>Geç</Text>
+  //     </View>
+  //   );
+  // };
+  // _renderDoneButton = () => {
+  //   return (
+  //     <View style={styles.buttonCircle}>
+  //       <Text>Bitti</Text>
+  //     </View>
+  //   );
+  // };
+
+  // _onDone = () => {
+  //   // User finished the introduction. Show real app through
+  //   // navigation or simply by controlling state
+  //   this.setState({showRealApp: true});
+  // };
+  _renderPagination = (activeIndex: number) => {
+    return (
+      <View style={styles.paginationContainer}>
+        <SafeAreaView>
+          <View style={styles.paginationDots}>
+            {data.length > 1 &&
+              data.map((_, i) => (
+                <TouchableOpacity
+                  key={i}
+                  style={[
+                    styles.dot,
+                    i === activeIndex
+                      ? {backgroundColor: 'white'}
+                      : {backgroundColor: 'rgba(0, 0, 0, .2)'},
+                  ]}
+                  onPress={() => this.slider?.goToSlide(i, true)}
+                />
+              ))}
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Kullanıcıyım</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Danışılan Kişiyim</Text>
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
+      </View>
+    );
   };
   render() {
-    if (this.state.showRealApp) {
-      return <App />;
-    } else {
-      return (
+    return (
+      <View style={{flex: 1}}>
+        <StatusBar translucent backgroundColor="transparent" />
         <AppIntroSlider
+          keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
-          data={slides}
-          onDone={this._onDone}
+          renderPagination={this._renderPagination}
+          data={data}
         />
-      );
-    }
+      </View>
+    );
+    // render() {
+    //   if (this.state.showRealApp) {
+    //     return <App />;
+    //   } else {
+    //     return (
+    //       <AppIntroSlider
+    //         renderItem={this._renderItem}
+    //         data={slides}
+    //         onDone={this._onDone}
+    //       />
+    //     );
+    //   }
   }
 }
