@@ -4,6 +4,7 @@ export default StyleSheet.create({
     width: Dimensions.get('window').width,
   },
   logoImage: {
+    width: Dimensions.get('window').width,
     height: 150,
     marginTop: 5,
   },

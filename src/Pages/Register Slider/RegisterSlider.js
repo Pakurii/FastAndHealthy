@@ -106,6 +106,14 @@ export default class App extends React.Component {
     return (
       <View style={styles.paginationContainer}>
         <SafeAreaView>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Kullanıcıyım</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Danışılan Kişiyim</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.paginationDots}>
             {data.length > 1 &&
               data.map((_, i) => (
@@ -114,20 +122,12 @@ export default class App extends React.Component {
                   style={[
                     styles.dot,
                     i === activeIndex
-                      ? {backgroundColor: 'white'}
+                      ? {backgroundColor: '#116ED8'}
                       : {backgroundColor: 'rgba(0, 0, 0, .2)'},
                   ]}
                   onPress={() => this.slider?.goToSlide(i, true)}
                 />
               ))}
-          </View>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Kullanıcıyım</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Danışılan Kişiyim</Text>
-            </TouchableOpacity>
           </View>
         </SafeAreaView>
       </View>
