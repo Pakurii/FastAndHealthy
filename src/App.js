@@ -6,6 +6,7 @@ const App = () => {
     <NavigationContainer>
       <Tabs />
     </NavigationContainer>
+
   );
 };
 export default App;
