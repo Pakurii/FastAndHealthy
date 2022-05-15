@@ -25,36 +25,24 @@ export default StyleSheet.create({
     color: 'rgba(0, 0, 0, 0.85)',
     textAlign: 'center',
   },
-  buttonCircle: {
-    width: 44,
-    height: 44,
-    backgroundColor: 'rgba(0, 0, 0, .2)',
-    borderRadius: 22,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+
   paginationContainer: {
     position: 'absolute',
     bottom: 16,
     left: 16,
     right: 16,
   },
-  paginationDots: {
-    height: 16,
-    margin: 16,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+  activeDot: {
+    width: 20,
+    backgroundColor: '#116ED8',
   },
   dot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    marginHorizontal: 4,
+    backgroundColor: '#c4c4c4',
   },
   buttonContainer: {
     flexDirection: 'row',
     marginHorizontal: 24,
+    top: -50,
   },
   button: {
     flex: 1,

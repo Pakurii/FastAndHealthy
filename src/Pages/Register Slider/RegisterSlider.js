@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  View,
-  SafeAreaView,
-  Text,
-  Image,
-  StyleSheet,
-  StatusBar,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import styles from './RegisterSliderStyle';
 
@@ -58,14 +50,15 @@ const data = [
 type Item = (typeof data)[0];
 
 export default class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     showRealApp: false,
-  //   };
-  // }
-  slider: AppIntroSlider | undefined;
+  constructor(props) {
+    super(props);
+    this.state = {
+      showRealApp: false,
+    };
+  }
+
   _renderItem = ({item}: {item: Item}) => {
+    console.log('item', item);
     return (
       <View
         style={[
@@ -77,85 +70,40 @@ export default class App extends React.Component {
         <Image source={item.image} style={styles.image} />
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.text}>{item.text}</Text>
+        {item.key == 6 && (
+          <View style={styles.paginationContainer}>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>Kullanıcıyım</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>Diyetisyenim</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
       </View>
     );
   };
   _keyExtractor = (item: Item) => item.title;
-
-  // _renderNextButton = () => {
-  //   return (
-  //     <View style={styles.buttonCircle}>
-  //       <Text>Geç</Text>
-  //     </View>
-  //   );
-  // };
-  // _renderDoneButton = () => {
-  //   return (
-  //     <View style={styles.buttonCircle}>
-  //       <Text>Bitti</Text>
-  //     </View>
-  //   );
-  // };
-
-  // _onDone = () => {
-  //   // User finished the introduction. Show real app through
-  //   // navigation or simply by controlling state
-  //   this.setState({showRealApp: true});
-  // };
-  _renderPagination = (activeIndex: number) => {
-    return (
-      <View style={styles.paginationContainer}>
-        <SafeAreaView>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Kullanıcıyım</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Danışılan Kişiyim</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.paginationDots}>
-            {data.length > 1 &&
-              data.map((_, i) => (
-                <TouchableOpacity
-                  key={i}
-                  style={[
-                    styles.dot,
-                    i === activeIndex
-                      ? {backgroundColor: '#116ED8'}
-                      : {backgroundColor: 'rgba(0, 0, 0, .2)'},
-                  ]}
-                  onPress={() => this.slider?.goToSlide(i, true)}
-                />
-              ))}
-          </View>
-        </SafeAreaView>
-      </View>
-    );
+  _onDone = () => {
+    // User finished the introduction. Show real app through
+    // navigation or simply by controlling state
+    this.setState({showRealApp: true});
   };
   render() {
-    return (
-      <View style={{flex: 1}}>
-        <StatusBar translucent backgroundColor="transparent" />
+    if (this.state.showRealApp) {
+      return <App />;
+    } else {
+      return (
         <AppIntroSlider
-          keyExtractor={this._keyExtractor}
+          activeDotStyle={styles.activeDot}
+          dotStyle={styles.dot}
           renderItem={this._renderItem}
-          renderPagination={this._renderPagination}
           data={data}
+          onDone={this._onDone}
         />
-      </View>
-    );
-    // render() {
-    //   if (this.state.showRealApp) {
-    //     return <App />;
-    //   } else {
-    //     return (
-    //       <AppIntroSlider
-    //         renderItem={this._renderItem}
-    //         data={slides}
-    //         onDone={this._onDone}
-    //       />
-    //     );
-    //   }
+      );
+    }
   }
 }
