@@ -1,5 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
 export default StyleSheet.create({
+
   logoContainer: {
     width: Dimensions.get('window').width,
   },
@@ -8,6 +9,17 @@ export default StyleSheet.create({
     height: 150,
     marginTop: 5,
   },
+
+    logoContainer:{
+      width:Dimensions.get('window').width,
+      alignItems:'center'
+    },
+    logoImage:{
+        height:150,
+        marginTop:5,
+         
+    },
+
 
   logoTextContainer: {
     alignItems: 'center',
