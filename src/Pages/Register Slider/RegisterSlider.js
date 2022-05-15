@@ -1,59 +1,109 @@
 import React from 'react';
-import { View,Text,Image } from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import Styles from "./RegisterSliderStyle";
- 
-const slides = [
+import styles from './RegisterSliderStyle';
+
+const data = [
   {
     key: 1,
-    title: 'Title 1',
-    text: 'Description.\nSay something cool',
-    // image: require('./assets/1.jpg'),
-    backgroundColor: '#59b2ab',
+    title: 'Fast and Healthy’e Hoşgeldin!',
+    text: 'Artık yeni hayatına bir adım daha yakınsın. Vakit kaybetmeden başlayalım?',
+    image: require('../../../assets/images/sliderImages/first.png'),
+    bg: 'white',
   },
   {
     key: 2,
-    title: 'Title 2',
-    text: 'Other cool stuff',
-    // image: require('./assets/2.jpg'),
-    backgroundColor: '#febe29',
+    title: 'Artırılmış Gerçeklikle Spor',
+    text: 'Fast and Healthy artırılmış gerçeklikle yep yeni bir spor deneyimi sunuyor. Spor yapmak hiç bu kadar eğlenceli olmamıştı... Devam etmek için kullanıcı türünü seçelim:',
+    image: require('../../../assets/images/sliderImages/second.png'),
+    bg: 'white',
   },
   {
     key: 3,
-    title: 'Rocket guy',
-    text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
-    // image: require('./assets/3.jpg'),
-    backgroundColor: '#22bcb5',
-  }
+    title: 'Sizi Profesyonellerle Buluşturuyoruz',
+    text: 'Fast and Healthy’de dilediğin zaman profesyonel destek alabilirsin. Hemde tek tık ile! Kayıt olmaya devam etmek için e-posta adresini ve kullanıcı adını belirleyelim:',
+    image: require('../../../assets/images/sliderImages/third.png'),
+    bg: 'white',
+  },
+  {
+    key: 4,
+    title: 'Liderlik Tablosunda Yerin Hazır',
+    text: 'Fast and Healthy seni bölgesel olarak diğer kullanıcılarla yarışıp ödüller kazanacağın puanlama sistemine sahiptir. Son olarak şifreni belirleyelim ve oturduğun yeri seçelim. Artık hazırsın!',
+    image: require('../../../assets/images/sliderImages/fourth.png'),
+    bg: 'white',
+  },
+  {
+    key: 5,
+    title: 'Sizi Her Şehirden Kullanıcılarla Buluşturuyoruz!',
+    text: 'Fast and Healthy ile farklı şehirlerdeki kullanıcılarla buluşabilirsiniz. Ayrıca çalıştığınız bölgede de öne çıkıp kendinizi ücretsiz bir şekilde tanıtabilirsiniz.',
+    image: require('../../../assets/images/sliderImages/fifth.png'),
+    bg: 'white',
+  },
+  {
+    key: 6,
+    title: 'Danışmanlarınıza Kolayca Görev Gönderin!',
+    text: 'Fast and Healthy ile size danışan kullanıcılara kolayca görev gönderebilirsiniz. Gönderdiğiniz görevleri tamamladığında hem danışanınız hem siz puan kazanırsınız. Bu keşfedilme şansınızı arttırır. ',
+    image: require('../../../assets/images/sliderImages/sixth.png'),
+    bg: 'white',
+  },
 ];
- 
+type Item = (typeof data)[0];
+
 export default class App extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            showRealApp: false
-          }
-    }
- 
-  _renderItem = ({ item }) => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showRealApp: false,
+    };
+  }
+
+  _renderItem = ({item}: {item: Item}) => {
+    console.log('item', item);
     return (
-      <View >
-        <Text>{item.title}</Text>
-        <Image source={item.image} />
-        <Text >{item.text}</Text>
+      <View
+        style={[
+          styles.slide,
+          {
+            backgroundColor: item.bg,
+          },
+        ]}>
+        <Image source={item.image} style={styles.image} />
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.text}>{item.text}</Text>
+        {item.key == 6 && (
+          <View style={styles.paginationContainer}>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>Kullanıcıyım</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>Diyetisyenim</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
       </View>
     );
-  }
+  };
+  _keyExtractor = (item: Item) => item.title;
   _onDone = () => {
     // User finished the introduction. Show real app through
     // navigation or simply by controlling state
-    this.setState({ showRealApp: true });
-  }
+    this.setState({showRealApp: true});
+  };
   render() {
     if (this.state.showRealApp) {
       return <App />;
     } else {
-      return <AppIntroSlider renderItem={this._renderItem} data={slides} onDone={this._onDone}/>;
+      return (
+        <AppIntroSlider
+          activeDotStyle={styles.activeDot}
+          dotStyle={styles.dot}
+          renderItem={this._renderItem}
+          data={data}
+          onDone={this._onDone}
+        />
+      );
     }
   }
 }

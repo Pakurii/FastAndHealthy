@@ -1,18 +1,18 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View, Text, Image, Ion} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import styles from "./SliderStyle"; 
- 
+import styles from './SliderStyle';
+
 export default class App extends React.Component {
-  _renderItem = ({ item }) => {
+  _renderItem = ({item}) => {
     return (
-      <View >
+      <View>
         <Text>{item.title}</Text>
         <Image source={item.image} />
         <Text>{item.text}</Text>
       </View>
     );
-  }
+  };
   _renderNextButton = () => {
     return (
       <View style={styles.buttonCircle}>
@@ -27,11 +27,7 @@ export default class App extends React.Component {
   _renderDoneButton = () => {
     return (
       <View style={styles.buttonCircle}>
-        <Ion
-          name="md-checkmark"
-          color="rgba(255, 255, 255, .9)"
-          size={24}
-        />
+        <Ion name="md-checkmark" color="rgba(255, 255, 255, .9)" size={24} />
       </View>
     );
   };
