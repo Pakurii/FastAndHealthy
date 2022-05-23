@@ -2,24 +2,40 @@ import React, {useState} from 'react';
 import {
   Text,
   View,
-  SafeAreaView,
   Image,
   ImageBackground,
   ScrollView,
 } from 'react-native';
+import { Formik } from 'formik';
 import styles from './DieticianRegisterPageStyle';
 import Logo from '../../Components/Logo';
 import InputBox from '../../Components/InputBox';
 import Button from '../../Components/Button/Button';
 
+const initialFormValues = {
+  dieticianfirstname: "",
+  dieticianlastname:"",
+  dieticianmail:"",
+  dieiticianpassword:"",
+  dieticianuniversity:"",
+  dieticianaboutyourself:""
+}
+
 const DieticianRegisterPage = () => {
+  function handleFormSubmit(formValues) {
+
+  }
   return (
     <ScrollView style={styles.container}>
       <Logo />
-      <InputBox iconName={'account-outline'} placeholder="Ad" />
-      <InputBox iconName={'account-outline'} placeholder="Soyad" />
-      <InputBox iconName={'mail'} placeholder="E-mail" />
-      <InputBox
+      <Formik initialValues={initialFormValues} onSubmit= {handleFormSubmit}>
+      {({values,handleChange,handleSubmit}) =>(
+      <>
+      <InputBox values={values.dieticianfirstname} onChangeText = {handleChange("dieticianfirstname")} iconName={'account-outline'} placeholder="Ad" />
+      <InputBox values={values.dieticianlastname} onChangeText = {handleChange("dieticianlastname")} iconName={'account-outline'} placeholder="Soyad" />
+      <InputBox values={values.dieticianmail} onChangeText = {handleChange("dieticianmail")} iconName={'mail'} placeholder="E-mail" />
+      <InputBox values={values.dieticianpassword}
+        onChangeText = {handleChange("dieticianpassword")}
         iconName={'lock-outline'}
         placeholder="Şifre"
         isPassword={true}
@@ -29,14 +45,17 @@ const DieticianRegisterPage = () => {
         placeholder="Tekrar Şifre Giriniz"
         isPassword={true}
       />
-      <InputBox iconName={'account-outline'} placeholder="Üniversite" />
+      <InputBox values={values.dieticianuniversity} onChangeText = {handleChange("dieticianuniversity")} iconName={'account-outline'} placeholder="Üniversite" />
       <InputBox iconName={'account-outline'} placeholder="Hakkınızda :" />
       <InputBox
         iconName={'account-outline'}
         placeholder="Sertifika Ekleyiniz"
       />
       <View style={styles.innerContainer} />
-      <Button buttonText={'Kayıt Ol'} />
+      <Button onPress ={handleSubmit} buttonText={'Kayıt Ol'}  />
+      </>
+      )}
+      </Formik>
       <View style={styles.dontHaveAccountContainer}>
         <Text style={styles.dontHaveAccountText}>Zaten hesabın var mı? </Text>
         <Text style={styles.registerText}>Giriş Yap!</Text>
