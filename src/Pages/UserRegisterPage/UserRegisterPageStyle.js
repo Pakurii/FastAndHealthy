@@ -1,5 +1,8 @@
 import {StyleSheet, Dimensions} from 'react-native';
 const deviceSize = Dimensions.get('window');
+const imageAspectRatio = 428 / 239;
+const scaledWidth = Dimensions.get('window').width;
+const scaledHeight = scaledWidth / imageAspectRatio;
 export default StyleSheet.create({
   container: {
     backgroundColor: 'white',
@@ -49,11 +52,12 @@ export default StyleSheet.create({
 
   loginFooterImage: {
     width: deviceSize.width,
-    height: 100,
+    height:100
+
   },
 
   loginFooterTopImage: {
-    bottom: deviceSize.height / 5.5,
+    bottom: deviceSize.height / 6,
   },
 
   copyrightFooterText: {

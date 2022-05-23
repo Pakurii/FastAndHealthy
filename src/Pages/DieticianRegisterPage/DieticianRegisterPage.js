@@ -16,7 +16,8 @@ const DieticianRegisterPage = () => {
   return (
     <ScrollView style={styles.container}>
       <Logo />
-      <InputBox iconName={'account-outline'} placeholder="Ad Soyad" />
+      <InputBox iconName={'account-outline'} placeholder="Ad" />
+      <InputBox iconName={'account-outline'} placeholder="Soyad" />
       <InputBox iconName={'mail'} placeholder="E-mail" />
       <InputBox
         iconName={'lock-outline'}
@@ -44,9 +45,8 @@ const DieticianRegisterPage = () => {
       <ImageBackground style={styles.loginFooterImage}>
         <Image
           style={styles.loginFooterTopImage}
-          source={require('../../../assets/images/loginFooterImageBackground.png')}
+          source={require('../../../assets/images/Subtract.png')}
         />
-        <Text style={styles.copyrightFooterText}>HealthyTech ©</Text>
       </ImageBackground>
     </ScrollView>
   );

@@ -24,10 +24,12 @@ export default StyleSheet.create({
         flex:1
     },
     centerContainer:{
-        flex:1
+        flex:1,
+        
     },
     bottomContainer:{
-        flex:1,
+        
+      flex:1,
    
        
     },
@@ -74,14 +76,14 @@ export default StyleSheet.create({
         
     },
     bottomBackgroundImage:{
+
       width: scaledWidth,
       height: scaledHeight,
       position: 'absolute',
       bottom: 0
     },
     bottomImage:{
-        bottom:0,
-      
+      bottom:0
     },
   
     
