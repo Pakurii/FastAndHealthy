@@ -1,5 +1,10 @@
 import {StyleSheet, Dimensions} from 'react-native';
 const deviceSize = Dimensions.get('window');
+
+const imageAspectRatio = 428 / 239;
+const scaledWidth = Dimensions.get('window').width;
+const scaledHeight = scaledWidth / imageAspectRatio;
+
 export default StyleSheet.create({
 
   container: {
@@ -13,16 +18,18 @@ export default StyleSheet.create({
     marginRight: 40,
     marginBottom: 5,
   },
-=======
+
     container:{
         backgroundColor:'white',
         flex:1
     },
     centerContainer:{
-        flex:1
+        flex:1,
+        
     },
     bottomContainer:{
-        flex:1,
+        
+      flex:1,
    
        
     },
@@ -69,14 +76,14 @@ export default StyleSheet.create({
         
     },
     bottomBackgroundImage:{
-      width:deviceSize.width,
-      height:200,
-      resizeMode:'contain'
-        
+
+      width: scaledWidth,
+      height: scaledHeight,
+      position: 'absolute',
+      bottom: 0
     },
     bottomImage:{
-        bottom:40,
-      
+      bottom:0
     },
   
     
