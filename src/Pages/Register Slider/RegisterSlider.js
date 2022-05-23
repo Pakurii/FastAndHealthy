@@ -1,9 +1,60 @@
-import React from 'react';
-import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import styles from './RegisterSliderStyle';
 
-const data = [
+function RegisterSlider({navigation}) {
+  const [showRealApp, setshowRealApp] = useState(false);
+
+  const onDone = () => {
+    setshowRealApp(true);
+  };
+
+  // const onSkip = () => {
+  //   setshowRealApp(true);
+  // };
+
+  const renderItem = ({item}) => {
+    return (
+      <View style={[styles.slide]}>
+        <Image source={item.image} style={styles.image} />
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.text}>{item.text}</Text>
+        {item.key == 6 && (
+          <View style={styles.paginationContainer}>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('UserRegisterScreen')}>
+                <Text style={styles.buttonText}>Kullanıcıyım</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('DieticianRegisterPage')}>
+                <Text style={styles.buttonText}>Diyetisyenim</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
+      </View>
+    );
+  };
+
+  return showRealApp ? (
+    <RegisterSlider />
+  ) : (
+    <AppIntroSlider
+      activeDotStyle={styles.activeDot}
+      dotStyle={styles.dot}
+      renderItem={renderItem}
+      data={slides}
+      onDone={onDone}
+    />
+  );
+}
+export default RegisterSlider;
+
+const slides = [
   {
     key: 1,
     title: 'Fast and Healthy’e Hoşgeldin!',
@@ -47,63 +98,80 @@ const data = [
     bg: 'white',
   },
 ];
-type Item = (typeof data)[0];
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showRealApp: false,
-    };
-  }
+// type Item = (typeof slides)[0];
 
-  _renderItem = ({item}: {item: Item}) => {
-    console.log('item', item);
-    return (
-      <View
-        style={[
-          styles.slide,
-          {
-            backgroundColor: item.bg,
-          },
-        ]}>
-        <Image source={item.image} style={styles.image} />
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.text}>{item.text}</Text>
-        {item.key == 6 && (
-          <View style={styles.paginationContainer}>
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Kullanıcıyım</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Diyetisyenim</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
-      </View>
-    );
-  };
-  _keyExtractor = (item: Item) => item.title;
-  _onDone = () => {
-    // User finished the introduction. Show real app through
-    // navigation or simply by controlling state
-    this.setState({showRealApp: true});
-  };
-  render() {
-    if (this.state.showRealApp) {
-      return <App />;
-    } else {
-      return (
-        <AppIntroSlider
-          activeDotStyle={styles.activeDot}
-          dotStyle={styles.dot}
-          renderItem={this._renderItem}
-          data={data}
-          onDone={this._onDone}
-        />
-      );
-    }
-  }
-}
+// export default class RegisterSlider extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       showRealApp: false,
+//     };
+//   }
+
+//   _renderItem = ({item, navigation}) => {
+//     console.log('item', item);
+
+//     function navigateToPage() {
+//       item.navigation.navigate('DieticianRegisterScreen');
+//     }
+
+//     return (
+// <View
+// style={[
+//   styles.slide,
+//   {
+//     backgroundColor: item.bg,
+//   },
+// ]}>
+//   <Image source={item.image} style={styles.image} />
+//   <Text style={styles.title}>{item.title}</Text>
+//   <Text style={styles.text}>{item.text}</Text>
+//   {item.key == 6 && (
+//     <View style={styles.paginationContainer}>
+//       <View style={styles.buttonContainer}>
+//         <TouchableOpacity style={styles.button}>
+//           <Text
+//             style={styles.buttonText}
+//             onPress={() =>
+//               navigation.navigate('DieticianRegisterScreen')
+//             }>
+//             Kullanıcıyım
+//           </Text>
+//         </TouchableOpacity>
+//         <TouchableOpacity style={styles.button} onPress={navigateToPage}>
+//           <Text style={styles.buttonText}>Diyetisyenim</Text>
+//         </TouchableOpacity>
+//       </View>
+//     </View>
+//   )}
+// </View>
+//     );
+//   };
+//   _keyExtractor = (item: Item) => item.title;
+//   _onDone = () => {
+//     // User finished the introduction. Show real app through
+//     // navigation or simply by controlling state
+//     this.setState({showRealApp: true});
+//   };
+//   _onSkip = () => {
+//     // User finished the introduction. Show real app through
+//     // navigation or simply by controlling state
+//     this.setState({showRealApp: true});
+//   };
+// render() {
+// if (this.state.showRealApp) {
+//   return <RegisterSlider />;
+// } else {
+//   return (
+//     <AppIntroSlider
+//       activeDotStyle={styles.activeDot}
+//       dotStyle={styles.dot}
+//       renderItem={this._renderItem}
+//       data={data}
+//       onDone={this._onDone}
+//     />
+//   );
+//   }
+// }
+// }
