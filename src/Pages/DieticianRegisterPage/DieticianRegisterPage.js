@@ -1,22 +1,16 @@
 import React, {useState} from 'react';
-import {
-  Text,
-  View,
-  SafeAreaView,
-  Image,
-  ImageBackground,
-  ScrollView,
-} from 'react-native';
+import {Text, View, Image, ImageBackground, ScrollView} from 'react-native';
 import styles from './DieticianRegisterPageStyle';
 import Logo from '../../Components/Logo';
 import InputBox from '../../Components/InputBox';
 import Button from '../../Components/Button/Button';
 
-const DieticianRegisterPage = () => {
+const DieticianRegisterPage = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <Logo />
-      <InputBox iconName={'account-outline'} placeholder="Ad Soyad" />
+      <InputBox iconName={'account-outline'} placeholder="Ad" />
+      <InputBox iconName={'account-outline'} placeholder="Soyad" />
       <InputBox iconName={'mail'} placeholder="E-mail" />
       <InputBox
         iconName={'lock-outline'}
@@ -35,19 +29,18 @@ const DieticianRegisterPage = () => {
         placeholder="Sertifika Ekleyiniz"
       />
       <View style={styles.innerContainer} />
-      <Button buttonText={'Kayıt Ol'} />
+      <Button
+        buttonText={'Kayıt Ol'}
+        click={() => navigation.navigate('LoginScreen')}
+      />
       <View style={styles.dontHaveAccountContainer}>
         <Text style={styles.dontHaveAccountText}>Zaten hesabın var mı? </Text>
-        <Text style={styles.registerText}>Giriş Yap!</Text>
+        <Text
+          style={styles.registerText}
+          onPress={() => navigation.navigate('LoginScreen')}>
+          Giriş Yap!
+        </Text>
       </View>
-
-      <ImageBackground style={styles.loginFooterImage}>
-        <Image
-          style={styles.loginFooterTopImage}
-          source={require('../../../assets/images/loginFooterImageBackground.png')}
-        />
-        <Text style={styles.copyrightFooterText}>HealthyTech ©</Text>
-      </ImageBackground>
     </ScrollView>
   );
 };
