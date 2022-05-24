@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, Image, ImageBackground} from 'react-native';
+import {Text, View, Image, ImageBackground,TouchableOpacity} from 'react-native';
 import {Formik} from 'formik';
 import auth from '@react-native-firebase/auth';
 import styles from './LoginPageStyle';
@@ -12,10 +12,10 @@ const initialFormValues = {
   password: '',
 };
 
-const LoginPage = navigation => {
+const LoginPage = ({navigation}) => {
   const [loading, setLoading] = React.useState(false);
   function onHandleSignUp() {
-    navigation.navigate('LoginPage');
+    navigation.navigate('RegisterSlider');
   }
   const handleFormSubmit = async formValues => {
     try {
@@ -60,7 +60,9 @@ const LoginPage = navigation => {
       </Formik>
       <View style={styles.dontHaveAccountContainer}>
         <Text style={styles.dontHaveAccountText}>Bir hesabın yok mu? </Text>
-        <Text style={styles.registerText}>Kayıt Ol!</Text>
+        <TouchableOpacity onPress={onHandleSignUp} >
+                <Text  style={styles.registerText} >Kayıt Ol</Text>
+            </TouchableOpacity>
       </View>
       <View style={styles.bottomContainer} />
     </View>
