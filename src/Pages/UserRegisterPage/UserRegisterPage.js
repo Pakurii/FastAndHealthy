@@ -16,6 +16,11 @@ const initialFormValues = {
 };
 
 const UserRegisterPage = ({navigation}) => {
+  const [loading, setLoading] = React.useState(false);
+  function onHandleRegister() {
+    navigation.navigate('LoginScreen');
+  }
+
   function handleFormSubmit(formValues) {}
   return (
     <ScrollView style={styles.container}>
@@ -66,7 +71,7 @@ const UserRegisterPage = ({navigation}) => {
               placeholder="Kilo"
             />
             <View style={styles.innerContainer} />
-            <Button buttonText={'Kayıt Ol'} onPress={handleSubmit} />
+            <Button buttonText={'Kayıt Ol'} onPress={onHandleRegister} />
           </>
         )}
       </Formik>
@@ -78,13 +83,6 @@ const UserRegisterPage = ({navigation}) => {
           Giriş Yap!
         </Text>
       </View>
-
-      <ImageBackground style={styles.loginFooterImage}>
-        <Image
-          style={styles.loginFooterTopImage}
-          source={require('../../../assets/images/Subtract.png')}
-        />
-      </ImageBackground>
     </ScrollView>
   );
 };

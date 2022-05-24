@@ -30,7 +30,7 @@ function RegisterSlider({navigation}) {
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.button}
-                onPress={() => navigation.navigate('DieticianRegisterPage')}>
+                onPress={() => navigation.navigate('DieticianRegisterScreen')}>
                 <Text style={styles.buttonText}>Diyetisyenim</Text>
               </TouchableOpacity>
             </View>
