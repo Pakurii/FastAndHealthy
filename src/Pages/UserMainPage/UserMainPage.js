@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import UserCard from '../../Components/UserCard/UserCard';
 import styles from './UserMainPageStyle';
-import {CalendarList} from '@react-native-calendar-list';
 
 const UserMainPage = ({navigation}) => {
   return (
@@ -38,14 +37,6 @@ const UserMainPage = ({navigation}) => {
           </View>
         </View>
       </View>
-      <CalendarList
-        startDate={'2017-02-01'}
-        monthsCount={12}
-        onDatePress={this.dayPressed}
-        initialNumToRender={3}
-        rowHeight={40}
-        headerHeight={40}
-      />
     </View>
   );
 };
