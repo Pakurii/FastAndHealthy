@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "989112208886",
+    "project_id": "fastandhealthy-d72c6",
+    "storage_bucket": "fastandhealthy-d72c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989112208886:android:724bcfb7a59367728fcbd7",
+        "android_client_info": {
+          "package_name": "com.fastandhealthy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989112208886-2ecgg2odrvd3u3p6829ruaaroce66crp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCslE6VQRmMM2C2Tvs_DC_s2VrPfAmdfDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989112208886-2ecgg2odrvd3u3p6829ruaaroce66crp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

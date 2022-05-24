@@ -17,6 +17,12 @@ export default StyleSheet.create({
     marginRight: 40,
     marginBottom: 5,
   },
+
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
   progressBar: {
     height: 5,
     flexDirection: 'row',
