@@ -78,7 +78,7 @@ import com.android.build.OutputFile
  * ]
  */
 project.ext.vectoricons = [
-    iconFontNames: [ 'MaterialCommunityIcons.ttf',"FontAwesome.ttf","Feather.ttf" ,"AntDesign.ttf","SimpleLineIcons.ttf"] // Name of the font files you want to copy
+    iconFontNames: [ 'MaterialCommunityIcons.ttf'] // Name of the font files you want to copy
 ]
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
@@ -260,7 +260,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
 
-    compile project(':react-native-vector-icons')
+    // compile project(':react-native-vector-icons')
 
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules

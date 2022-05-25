@@ -12,7 +12,8 @@ const ChatScreen = () => {
             renderItem={({item})=> <Message message={item}/>} 
             inverted 
             /> */}
-            <Message></Message>
+            <FlatList><Message></Message></FlatList>
+            
             <MessageInput></MessageInput>
         </SafeAreaView>
     )
