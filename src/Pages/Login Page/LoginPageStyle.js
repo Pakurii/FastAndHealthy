@@ -36,12 +36,13 @@ export default StyleSheet.create({
     fontFamily: 'Blinker-Regular',
     color: '#555555',
     fontSize: 15,
-    textDecorationLine:'underline'
+    
   },
   forgotPasswordText: {
     fontFamily: 'Blinker-Regular',
     color: '#116ED8',
     fontSize: 15,
+    textDecorationLine:'underline'
   },
   dontHaveAccountContainer: {
     flexDirection: 'row',
@@ -60,6 +61,7 @@ export default StyleSheet.create({
     fontFamily: 'Blinker-Regular',
     color: '#116ED8',
     fontSize: 15,
+    textDecorationLine:'underline'
   },
   bottomBackgroundImage: {
     width: scaledWidth,
