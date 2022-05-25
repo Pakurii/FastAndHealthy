@@ -22,6 +22,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  arPointContainer: {
+    marginRight: 30,
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
 
   progressBar: {
     height: 5,
@@ -31,7 +36,7 @@ export default StyleSheet.create({
     backgroundColor: '#c4c4c4',
     borderRadius: 15,
   },
-  lastContainer: {
+  stepContainer: {
     height: 60,
     backgroundColor: 'white',
 
@@ -53,6 +58,13 @@ export default StyleSheet.create({
     color: 'black',
     fontWeight: '700',
     fontSize: 15,
+  },
+
+  arPointText: {
+    paddingLeft: 12,
+    alignItems: 'center',
+    textAlign: 'center',
+    color: 'black',
   },
 
   stepCounter: {
