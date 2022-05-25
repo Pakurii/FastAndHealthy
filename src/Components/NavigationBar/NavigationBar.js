@@ -2,13 +2,12 @@ import React from 'react';
 import LoginPage from '../../Pages/Login Page';
 import Styles from './NavigationBarStyle';
 import RegisterSlider from '../../Pages/Register Slider';
-// import DieticianRegisterPage from '../../Pages/DieticianRegisterPage';
+import DieticianRegisterPage from '../../Pages/DieticianRegisterPage';
 import UserRegisterPage from '../../Pages/UserRegisterPage';
 import UserMainPage from '../../Pages/UserMainPage';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Image} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,9 +16,31 @@ const Tab = createBottomTabNavigator();
 const MainStack = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="DFGSFGD" component={UserMainPage} />
-      <Stack.Screen name="RegisterSliderScreen" component={RegisterSlider} />
-      <Stack.Screen name="UserRegisterScreen" component={UserRegisterPage} />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="UserMainScreen"
+        component={UserMainPage}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="RegisterSliderScreen"
+        component={RegisterSlider}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="DieticianRegisterScreen"
+        component={DieticianRegisterPage}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="UserRegisterScreen"
+        component={UserRegisterPage}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="LoginScreen"
+        component={LoginPage}
+      />
     </Stack.Navigator>
   );
 };
@@ -35,14 +56,16 @@ function Navigations() {
           ...Styles.navbarCustomize,
         },
         headerShown: false,
-        
+
+        tabBarActiveTintColor: '#116ED8',
+        tabBarInactiveTintColor: '#c4c4c4',
       }}>
       <Tab.Screen
         name="Home"
         component={MainStack}
         options={{
-          tabBarIcon: () => (
-            <Image source={require('../../../assets/images/icons/home.png')} />
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
         }}
       />
@@ -50,9 +73,11 @@ function Navigations() {
         name="Search"
         component={LoginPage}
         options={{
-          tabBarIcon: () => (
-            <Image
-              source={require('../../../assets/images/icons/search.png')}
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons
+              name="text-search"
+              color={color}
+              size={size}
             />
           ),
         }}
@@ -61,8 +86,12 @@ function Navigations() {
         name="Chat"
         component={LoginPage}
         options={{
-          tabBarIcon: () => (
-            <Image source={require('../../../assets/images/icons/chat.png')} />
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons
+              name="chat-outline"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
@@ -70,9 +99,11 @@ function Navigations() {
         name="Settings"
         component={LoginPage}
         options={{
-          tabBarIcon: () => (
-            <Image
-              source={require('../../../assets/images/icons/settings.png')}
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons
+              name="table-settings"
+              color={color}
+              size={size}
             />
           ),
         }}

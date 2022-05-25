@@ -44,7 +44,7 @@ const UserMainPage = ({navigation}) => {
           </View>
         </View>
       </View>
-      <CalendarStrip
+      {/* <CalendarStrip
         // showWeekNumber
         selectedDate={'2022/05/24'}
         // onPressDate={date => {
@@ -58,7 +58,7 @@ const UserMainPage = ({navigation}) => {
         // }}
         markedDate={['2022-05-24', '2022-05-26', '2022-05-04', '2022-05-01']}
         weekStartsOn={1} // 0,1,2,3,4,5,6 for S M T W T F S, defaults to 0
-      />
+      /> */}
     </View>
   );
 };

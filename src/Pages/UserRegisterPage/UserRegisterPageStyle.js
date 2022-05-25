@@ -6,6 +6,7 @@ const scaledHeight = scaledWidth / imageAspectRatio;
 export default StyleSheet.create({
   container: {
     backgroundColor: 'white',
+    marginBottom: 70,
   },
 
   innerContainer: {
@@ -52,8 +53,7 @@ export default StyleSheet.create({
 
   loginFooterImage: {
     width: deviceSize.width,
-    height:100
-
+    height: 100,
   },
 
   loginFooterTopImage: {
