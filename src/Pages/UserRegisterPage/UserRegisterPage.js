@@ -24,7 +24,7 @@ const UserRegisterPage = ({navigation}) => {
   function handleFormSubmit(formValues) {}
   return (
     <ScrollView style={styles.container}>
-      <Logo />
+      {/* <Logo /> */}
       <Formik initialValues={initialFormValues} onSubmit={handleFormSubmit}>
         {({values, handleChange, handleSubmit}) => (
           <>

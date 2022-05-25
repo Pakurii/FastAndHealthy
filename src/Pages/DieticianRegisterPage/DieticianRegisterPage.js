@@ -19,7 +19,6 @@ const DieticianRegisterPage = ({navigation}) => {
   function handleFormSubmit(formValues) {}
   return (
     <ScrollView style={styles.container}>
-      <Logo />
       <Formik initialValues={initialFormValues} onSubmit={handleFormSubmit}>
         {({values, handleChange, handleSubmit}) => (
           <>
@@ -77,13 +76,6 @@ const DieticianRegisterPage = ({navigation}) => {
           Giriş Yap!
         </Text>
       </View>
-
-      <ImageBackground style={styles.loginFooterImage}>
-        <Image
-          style={styles.loginFooterTopImage}
-          source={require('../../../assets/images/Subtract.png')}
-        />
-      </ImageBackground>
     </ScrollView>
   );
 };
