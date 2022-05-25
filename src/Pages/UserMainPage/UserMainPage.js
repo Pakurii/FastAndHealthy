@@ -4,15 +4,14 @@ import {
   View,
   StyleSheet,
   Image,
-  ImageBackground,
   Animated,
-  ScrollView,
   TouchableOpacity,
   Icon,
 } from 'react-native';
 import UserCard from '../../Components/UserCard/UserCard';
 import styles from './UserMainPageStyle';
-import CalendarStrip from 'react-native-slideable-calendar-strip';
+
+import ArPointCard from '../../Components/ArPointCard';
 
 const UserMainPage = ({navigation}) => {
   return (
@@ -30,7 +29,7 @@ const UserMainPage = ({navigation}) => {
           <View style={styles.imageContainer}>
             <Image source={require('../../../assets/images/step.png')} />
           </View>
-          <View style={styles.lastContainer}>
+          <View style={styles.stepContainer}>
             <Text style={styles.stepText}>Adım Sayısı</Text>
             <Text style={styles.stepCounter}>4800</Text>
             <View style={styles.progressBar}>
@@ -42,6 +41,24 @@ const UserMainPage = ({navigation}) => {
               />
             </View>
           </View>
+        </View>
+        <Text style={styles.arPointText}>
+          Artırılmış gerçeklikle spor yaparak topladığın materyallere göz
+          atalım:
+        </Text>
+        <View style={styles.arPointContainer}>
+          <ArPointCard
+            source={require('../../../assets/images/bear.png')}
+            text={'10/10'}
+          />
+          <ArPointCard
+            source={require('../../../assets/images/dolphin.png')}
+            text={'10/4'}
+          />
+          <ArPointCard
+            source={require('../../../assets/images/goat.png')}
+            text={'10/6'}
+          />
         </View>
       </View>
       {/* <CalendarStrip
