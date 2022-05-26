@@ -51,6 +51,10 @@ export default StyleSheet.create({
     borderRadius: 20,
     height: 40,
   },
+  myTaskContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
   stepText: {
     paddingLeft: 20,
     paddingTop: 7,
@@ -62,9 +66,19 @@ export default StyleSheet.create({
 
   arPointText: {
     paddingLeft: 12,
+    fontSize: 15,
+    fontWeight: '400',
     alignItems: 'center',
     textAlign: 'center',
     color: 'black',
+  },
+  myTaskText: {
+    paddingTop: 10,
+    alignItems: 'center',
+    fontSize: 18,
+    textAlign: 'center',
+    fontWeight: '600',
+    color: '#474747',
   },
 
   stepCounter: {
