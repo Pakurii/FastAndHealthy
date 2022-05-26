@@ -50,6 +50,8 @@ function Navigations() {
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
+        
         tabBarStyle: {
           ...Styles.navbarCustomize,
         },
