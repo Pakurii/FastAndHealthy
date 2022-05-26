@@ -5,6 +5,8 @@ import RegisterSlider from '../../Pages/Register Slider';
 import DieticianRegisterPage from '../../Pages/DieticianRegisterPage';
 import UserRegisterPage from '../../Pages/UserRegisterPage';
 import UserMainPage from '../../Pages/UserMainPage';
+import ChatRoom from '../../Pages/ChatRoom';
+import ChatScreen from '../../Pages/ChatScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -45,13 +47,30 @@ const MainStack = () => {
   );
 };
 
+const ChatStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="ChatRoomScreen"
+        component={ChatRoom}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="ChatScreens"
+        component={ChatScreen}
+      />
+    </Stack.Navigator>
+  );
+};
+
 function Navigations() {
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,
-        
+
         tabBarStyle: {
           ...Styles.navbarCustomize,
         },
@@ -84,7 +103,7 @@ function Navigations() {
       />
       <Tab.Screen
         name="Chat"
-        component={LoginPage}
+        component={ChatStack}
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
@@ -97,7 +116,7 @@ function Navigations() {
       />
       <Tab.Screen
         name="Settings"
-        component={LoginPage}
+        component={ChatScreen}
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
