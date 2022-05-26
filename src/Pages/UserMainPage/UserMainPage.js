@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   Text,
   View,
@@ -6,12 +6,11 @@ import {
   Image,
   Animated,
   TouchableOpacity,
-  Icon,
 } from 'react-native';
 import UserCard from '../../Components/UserCard/UserCard';
 import styles from './UserMainPageStyle';
-
 import ArPointCard from '../../Components/ArPointCard';
+import TaskCard from '../../Components/TaskCard';
 
 const UserMainPage = ({navigation}) => {
   return (
@@ -43,8 +42,7 @@ const UserMainPage = ({navigation}) => {
           </View>
         </View>
         <Text style={styles.arPointText}>
-          Artırılmış gerçeklikle spor yaparak topladığın materyallere göz
-          atalım:
+          AR ile topladığın materyallere göz atalım:
         </Text>
         <View style={styles.arPointContainer}>
           <ArPointCard
@@ -59,6 +57,16 @@ const UserMainPage = ({navigation}) => {
             source={require('../../../assets/images/goat.png')}
             text={'10/6'}
           />
+        </View>
+        <View style={styles.myTaskContainer}>
+          <Text style={styles.myTaskText}>Görevlerim :</Text>
+          <TaskCard textPoint={25} textTask={'Bugün en az 3000 adım at'} />
+          <TaskCard
+            textPoint={75}
+            textTask={'Bugün  en az 2.5 kilometre koş'}
+          />
+          <TaskCard textPoint={50} textTask={'Bugün 30dk boyunca fitness'} />
+          <TaskCard textPoint={25} textTask={'Bugün en az 250 puana ulaş'} />
         </View>
       </View>
       {/* <CalendarStrip

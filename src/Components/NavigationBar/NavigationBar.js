@@ -101,7 +101,7 @@ function Navigations() {
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
-              name="table-settings"
+              name="cog-outline"
               color={color}
               size={size}
             />
