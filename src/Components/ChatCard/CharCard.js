@@ -1,11 +1,20 @@
 import React from "react";
 import styles from "./ChatCardStyle";
-import {Text,View,Image} from "react-native";
+import {Text,View,Image,Pressable} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+
 
 const MessageCard = ({chatRoom}) => {
+    
+    const navigation = useNavigation();
+    const onPress = () => {
+       navigation.navigate("ChatScreen");
+    }
+
     return (
         
-        <View style= {styles.container}>
+        <Pressable onPress = {onPress} style= {styles.container}>
             <Image source={require("../../../assets/images/portre.png")} style = {styles.image} />
             {/* Okunmamış Mesaj Sayısı 0 ise bu kısmı yazmaz eğer 0'dan büyük ise bu kısmı yazdırır*/}
             { 0 ? <View style = {styles.badgeContainer}>
@@ -19,7 +28,7 @@ const MessageCard = ({chatRoom}) => {
                     </View>
                      <Text numberOfLines={1} style={styles.text}>Message</Text>
                 </View>
-        </View>
+        </Pressable>
     )
 
 }

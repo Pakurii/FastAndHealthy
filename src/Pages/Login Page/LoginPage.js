@@ -15,7 +15,7 @@ const initialFormValues = {
 const LoginPage = ({navigation}) => {
   const [loading, setLoading] = React.useState(false);
   function onHandleSignUp() {
-    navigation.navigate('RegisterSlider');
+    navigation.navigate('RegisterSliderScreen');
   }
   const handleFormSubmit = async formValues => {
     try {
@@ -25,7 +25,7 @@ const LoginPage = ({navigation}) => {
         formValues.password,
       );
       setLoading(false);
-      navigation.navigate('SignPage');
+      navigation.navigate('Home');
     } catch (error) {
       setLoading(true);
       console.log(error);
@@ -50,14 +50,17 @@ const LoginPage = ({navigation}) => {
               isPassword={true}
               value={values.password}
             />
-            <View style={styles.rememberAndForgotPasswordContainer}>
-              <Text style={styles.rememberMeText}>Beni Hatırla</Text>
-              <Text style={styles.forgotPasswordText}>Şifreni mi unuttun?</Text>
-            </View>
+            
             <Button buttonText={'Giriş Yap'} onPress={handleSubmit} />
           </>
         )}
       </Formik>
+      <View style={styles.rememberAndForgotPasswordContainer}>
+              <Text style={styles.rememberMeText}>Beni Hatırla</Text>
+              <TouchableOpacity onPress={()=> navigation.navigate("Navigations")}>
+              <Text style={styles.forgotPasswordText}>Şifreni mi unuttun?</Text>
+              </TouchableOpacity>
+            </View>
       <View style={styles.dontHaveAccountContainer}>
         <Text style={styles.dontHaveAccountText}>Bir hesabın yok mu? </Text>
         <TouchableOpacity onPress={onHandleSignUp} >
