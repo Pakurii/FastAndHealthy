@@ -22,4 +22,9 @@ const ChatScreen = () => {
     )
 }
 
+      <MessageInput />
+    </SafeAreaView>
+  );
+};
+
 export default ChatScreen;

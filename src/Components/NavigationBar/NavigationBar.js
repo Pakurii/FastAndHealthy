@@ -65,13 +65,30 @@ const MainStack = ({navigation}) => {
   );
 };
 
+const ChatStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="ChatRoomScreen"
+        component={ChatRoom}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="ChatScreens"
+        component={ChatScreen}
+      />
+    </Stack.Navigator>
+  );
+};
+
 function Navigations() {
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,
-        
+
         tabBarStyle: {
           ...Styles.navbarCustomize,
         },
@@ -119,7 +136,7 @@ function Navigations() {
       />
       <Tab.Screen
         name="Settings"
-        component={LoginPage}
+        component={ChatScreen}
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons

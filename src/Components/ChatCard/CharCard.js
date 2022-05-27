@@ -31,6 +31,17 @@ const MessageCard = ({chatRoom}) => {
         </Pressable>
     )
 
-}
+      <TouchableOpacity style={styles.innerContainer} onPress={onPress}>
+        <View style={styles.row}>
+          <Text style={styles.name}>Name</Text>
+          <Text stlye={styles.text}>Last Time</Text>
+        </View>
+        <Text numberOfLines={1} style={styles.text}>
+          Message
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 export default MessageCard;
