@@ -49,6 +49,7 @@ export default StyleSheet.create({
     fontFamily: 'Blinker-Regular',
     color: '#116ED8',
     fontSize: 15,
+    textDecorationLine:'underline'
   },
 
   loginFooterImage: {

@@ -12,6 +12,7 @@ export default StyleSheet.create({
     width: deviceSize.width / 1.05,
     margin: 7,
     height: 50,
+    
   },
   image: {
     backgroundColor: 'white',
@@ -35,5 +36,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
     color: '#006EE9',
     fontSize: 16,
+    
   },
 });

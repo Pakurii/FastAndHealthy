@@ -5,23 +5,31 @@ import RegisterSlider from '../../Pages/Register Slider';
 import DieticianRegisterPage from '../../Pages/DieticianRegisterPage';
 import UserRegisterPage from '../../Pages/UserRegisterPage';
 import UserMainPage from '../../Pages/UserMainPage';
-import ChatRoom from '../../Pages/ChatRoom';
-import ChatScreen from '../../Pages/ChatScreen';
+import ChatRoom from "../../Pages/ChatRoom";
+import ChatScreen from "../../Pages/ChatScreen";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { NavigationContainer } from '@react-navigation/native';
+import {Text,View,useWindowDimensions,Image} from 'react-native';
+
+
 
 const Stack = createNativeStackNavigator();
 
 const Tab = createBottomTabNavigator();
 
-const MainStack = () => {
+const MainStack = ({navigation}) => {
   return (
+    <NavigationContainer independent={true}>
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen
+       
+    
+
+       <Stack.Screen
         options={{headerShown: false}}
-        name="UserMainScreen"
-        component={UserMainPage}
+        name="LoginScreen"
+        component={LoginPage}
       />
       <Stack.Screen
         options={{headerShown: false}}
@@ -39,11 +47,21 @@ const MainStack = () => {
         component={UserRegisterPage}
       />
       <Stack.Screen
+        options={{headerShown: true ,
+          headerBackTitleVisible:false,
+          headerTitle:ChatScreenHeader}}
+        name="ChatScreen"
+        component={ChatScreen}
+      />
+      <Stack.Screen
         options={{headerShown: false}}
-        name="LoginScreen"
-        component={LoginPage}
+        name="Navigations"
+        component={Navigations}
+        
       />
     </Stack.Navigator>
+    </NavigationContainer>
+
   );
 };
 
@@ -81,7 +99,7 @@ function Navigations() {
       }}>
       <Tab.Screen
         name="Home"
-        component={MainStack}
+        component={UserMainPage}
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
@@ -101,10 +119,12 @@ function Navigations() {
           ),
         }}
       />
-      <Tab.Screen
+      <Tab.Screen 
         name="Chat"
-        component={ChatStack}
+        component={ChatRoom}
         options={{
+          headerShown:true,
+          headerTitle:ChatRoomHeader,
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
               name="chat-outline"
@@ -138,4 +158,47 @@ function Navigations() {
   );
 }
 
-export default Navigations;
+
+
+
+const ChatRoomHeader = (props) => {
+    const {width} = useWindowDimensions();
+    return(
+      <View style={{flexDirection:"row",
+      alignItems:"center",
+      justifyContent:"center",
+      paddingRight:30,
+      width,}}>
+
+      <Text style = {{flex:1,textAlign:"center",
+        fontSize:24,
+        fontWeight:"bold",
+        color:"black"}}>Chat</Text>
+      
+      </View>
+    )
+  }
+
+  const ChatScreenHeader = (props) => {
+    const {width} = useWindowDimensions();
+    return(
+      <View style={{flexDirection:"row",
+      justifyContent:"space-between",
+      alignItems:"center",
+      marginRight:100,
+      width:width,}}>
+        <Image
+         source={require("../../../assets/images/portre.png")}
+         style = {{width:40,height:40,borderRadius:30}}
+        ></Image>
+
+      <Text style = {{flex:1,textAlign:"center",
+        fontWeight:"bold",
+        marginRight:130,
+        color:"black"}}>Kullanici Adi</Text>
+      
+      </View>
+    )
+  }
+
+export default MainStack;
