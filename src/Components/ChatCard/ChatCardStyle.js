@@ -5,7 +5,7 @@ export default StyleSheet.create({
     padding: 10,
   },
   innerContainer: {
-    flex: 1,
+    flex: 1, 
     justifyContent: 'center',
   },
   row: {
