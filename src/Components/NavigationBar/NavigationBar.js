@@ -7,11 +7,13 @@ import UserRegisterPage from '../../Pages/UserRegisterPage';
 import UserMainPage from '../../Pages/UserMainPage';
 import ChatRoom from "../../Pages/ChatRoom";
 import ChatScreen from "../../Pages/ChatScreen";
+import SettingsPage from "../../Pages/SettingsPage/Settings"
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NavigationContainer } from '@react-navigation/native';
 import {Text,View,useWindowDimensions,Image} from 'react-native';
+
 
 
 
@@ -53,6 +55,7 @@ const MainStack = ({navigation}) => {
         name="ChatScreen"
         component={ChatScreen}
       />
+
       <Stack.Screen
         options={{headerShown: false}}
         name="Navigations"
@@ -65,22 +68,6 @@ const MainStack = ({navigation}) => {
   );
 };
 
-const ChatStack = () => {
-  return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen
-        options={{headerShown: false}}
-        name="ChatRoomScreen"
-        component={ChatRoom}
-      />
-      <Stack.Screen
-        options={{headerShown: false}}
-        name="ChatScreens"
-        component={ChatScreen}
-      />
-    </Stack.Navigator>
-  );
-};
 
 function Navigations() {
   return (
@@ -136,7 +123,7 @@ function Navigations() {
       />
       <Tab.Screen
         name="Settings"
-        component={ChatScreen}
+        component={SettingsPage}
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
